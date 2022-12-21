@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">InDownloader</string>
+    <string name="txt_download">Download</string>
+    <string name="txt_paste_link">Paste link</string>
+    <string name="txt_hide_edt">Paste Instagram link here…</string>
+    <string name="txt_url_not_illegal">Invalid link</string>
+    <string name="txt_not_instagram">Instagram app not found</string>
+    <string name="txt_waring_call_api">Check URL</string>
+    <string name="txt_message_download">This process may take a few minutes, please wait…</string>
+    <string name="txt_error">An error occurred</string>
+    <string name="txt_error_message_request">Please check the Instagram link again, maybe the link you use is on private mode. Please use community-shared Instagram links, sorry for the inconvenience!</string>
+    <string name="txt_understood">Understood</string>
+    <string name="txt_waring_download">Downloading</string>
+    <string name="txt_waring_call_api_message">This download may take a few minutes, please wait…</string>
+    <string name="txt_done_download">Download successfully</string>
+
+    <string name="txt_guide">Download Guide</string>
+    <string name="txt_guide_1">1️⃣ Open the Instagram app on your phone.</string>
+    <string name="txt_guide_2">2️⃣ Select any post you want to download(post must be public)</string>
+    <string name="txt_guide_3">3️⃣ Click the MENU icon (3 vertical dots) in the bottom right.</string>
+    <string name="txt_guide_4">4️⃣ Click the COPY LINK button.</string>
+    <string name="txt_guide_5">5️⃣ Back to InDownloader, the application will automatically check the path.</string>
+    <string name="txt_guide_6">6️⃣ Wait for our server to do the work and then save the video to your device.</string>
+    <string name="txt_guide_video">Tutorial with video</string>
+    <string name="txt_option_download">Option to download</string>
+    <string name="txt_message_option_download">Choose to download according to your needs. Everything is completely FREE.</string>
+    <string name="txt_watch_now">Watch now</string>
+    <string name="txt_no_data">No data</string>
+</resources>

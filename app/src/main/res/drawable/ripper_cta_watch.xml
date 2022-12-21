@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#74FCB045"
+    android:exitFadeDuration="@android:integer/config_shortAnimTime">
+
+    <item>
+        <shape>
+            <solid android:color="@color/black181a20" />
+            <corners android:radius="@dimen/_48sdp" />
+            <stroke
+                android:width="1dp"
+                android:color="#14ACCFED" />
+        </shape>
+    </item>
+
+</ripple>
