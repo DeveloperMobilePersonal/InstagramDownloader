@@ -1,11 +1,13 @@
 package instagram.photo.video.downloader.story.saver.ui
 
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.GsonBuilder
 import instagram.photo.video.downloader.story.saver.R
 import instagram.photo.video.downloader.story.saver.base.BaseActivity
+import instagram.photo.video.downloader.story.saver.base.LogManager
 import instagram.photo.video.downloader.story.saver.data.*
-import instagram.photo.video.downloader.story.saver.data.scanMedia.MediaStoreService
 import instagram.photo.video.downloader.story.saver.databinding.ActivityMainBinding
 import instagram.photo.video.downloader.story.saver.dialog.DialogDownloader
 import instagram.photo.video.downloader.story.saver.dialog.DialogDownloaderListener

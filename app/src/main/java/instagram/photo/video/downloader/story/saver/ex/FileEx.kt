@@ -23,7 +23,7 @@ fun Context.createAlbumStorage(): String {
             File.separator +
             Environment.DIRECTORY_DCIM +
             File.separator +
-            "In_Downloader"
+            "IGDownloader"
     val file = File(path)
     if (!file.exists()) {
         file.mkdirs()

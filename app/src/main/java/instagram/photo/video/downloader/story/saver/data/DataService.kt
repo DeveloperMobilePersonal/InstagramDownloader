@@ -118,7 +118,6 @@ class DataService(
 
     private fun fetchAndroidNetworking(url: String): MediaSource? {
         val newUrl = url.replace("embed/captioned/?utm_source=ig_web_copy_link", "")
-        LogManager.showLog(newUrl)
         val build = AndroidNetworking.get(newUrl)
             .addHeaders("Accept", "application/json")
             .addHeaders("Content-Type", "application/json;charset=UTF-8")
@@ -162,14 +161,6 @@ class DataService(
             val image = kotlin.runCatching { result.getString("image") }.getOrNull()
             val mediaSource = MediaSource()
             val list = mutableListOf<MediaSource.ResourceModel>()
-            if (!video.isNullOrEmpty()) {
-                list.add(
-                    MediaSource.ResourceModel(
-                        id, video,
-                        MediaSource.ResourceModel.Companion.MediaType.VIDEO
-                    )
-                )
-            }
             if (!image.isNullOrEmpty()) {
                 list.add(
                     MediaSource.ResourceModel(
@@ -178,10 +169,20 @@ class DataService(
                     )
                 )
             }
+            if (!video.isNullOrEmpty()) {
+                list.add(
+                    MediaSource.ResourceModel(
+                        id, video,
+                        MediaSource.ResourceModel.Companion.MediaType.VIDEO
+                    )
+                )
+            }
             mediaSource.resources = list
             mediaSource.id = id
             mediaSource.username = MediaStore.UNKNOWN_STRING
             mediaSource.caption = MediaStore.UNKNOWN_STRING
+            mediaSource.profilePicUrl = MediaStore.UNKNOWN_STRING
+            mediaSource.fullName = MediaStore.UNKNOWN_STRING
             mediaSource
         } else {
             null

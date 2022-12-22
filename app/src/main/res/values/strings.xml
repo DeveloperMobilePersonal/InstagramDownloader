@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">InDownloader</string>
+    <string name="app_name">IGDownloader</string>
     <string name="txt_download">Download</string>
     <string name="txt_paste_link">Paste link</string>
     <string name="txt_hide_edt">Paste Instagram link here…</string>
@@ -26,4 +26,9 @@
     <string name="txt_message_option_download">Choose to download according to your needs. Everything is completely FREE.</string>
     <string name="txt_watch_now">Watch now</string>
     <string name="txt_no_data">No data</string>
+
+    <string name="client_id">717592539578236</string>
+    <string name="redirect_url">https://taptik.net/instagram-downloader</string>
+    <string name="base_url">https://api.instagram.com/</string>
+    <string name="request_url">https://api.instagram.com/oauth/authorize/?client_id=%s&amp;redirect_uri=%s&amp;response_type=token</string>
 </resources>

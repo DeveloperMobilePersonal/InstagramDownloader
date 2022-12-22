@@ -40,7 +40,8 @@ fun MainActivity.fetch(url: String) {
         toastShow(R.string.txt_url_not_illegal)
     } else {
         dialogLoading.showUI()
-        if (urlModel.isStory) {
+        dataService.fetch(urlModel)
+    if (urlModel.isStory) {
             dataService.fetchStory(urlModel)
         } else {
             dataService.fetch(urlModel)

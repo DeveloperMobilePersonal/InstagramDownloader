@@ -3,8 +3,8 @@
 # min_api: 23
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.0"}
-# pg_map_id: 284c236
-# pg_map_hash: SHA-256 284c23637f89b6a0f78019429648ad334be9addeac0c75c631f48d868b32d64d
+# pg_map_id: addcc2e
+# pg_map_hash: SHA-256 addcc2e7ed802c0499bc122f7ad483a96e6ae7a33178f97d8fb8278931328e02
 ActivityCompat$$ExternalSyntheticLambda0 -> e0:
 # {"id":"sourceFile","fileName":"R8$$SyntheticClass"}
 # {"id":"com.android.tools.r8.synthesized"}
@@ -25499,9 +25499,11 @@ instagram.photo.video.downloader.story.saver.data.MediaSource -> px:
     java.util.List getResources() -> d
     java.lang.String getUsername() -> e
     void setCaption(java.lang.String) -> f
-    void setId(java.lang.String) -> g
-    void setResources(java.util.List) -> h
-    void setUsername(java.lang.String) -> i
+    void setFullName(java.lang.String) -> g
+    void setId(java.lang.String) -> h
+    void setProfilePicUrl(java.lang.String) -> i
+    void setResources(java.util.List) -> j
+    void setUsername(java.lang.String) -> k
 instagram.photo.video.downloader.story.saver.data.MediaSource$ResourceModel -> px$a:
     instagram.photo.video.downloader.story.saver.data.MediaSource$ResourceModel$Companion Companion -> d
     java.lang.String id -> a

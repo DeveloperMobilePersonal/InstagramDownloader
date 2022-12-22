@@ -6,8 +6,10 @@ import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
+import android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE
 import android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO
 import android.text.TextUtils
+import instagram.photo.video.downloader.story.saver.base.LogManager
 import instagram.photo.video.downloader.story.saver.ex.createAlbumStorage
 import java.util.concurrent.TimeUnit
 
@@ -23,14 +25,7 @@ class MediaStoreService(private val context: Context) {
         MediaStore.Video.Media.DURATION
     )
 
-    private val selection = (MediaStore.Files.FileColumns.MEDIA_TYPE + "="
-            + MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE
-            + " OR "
-            + MediaStore.Files.FileColumns.MEDIA_TYPE + "="
-            + MEDIA_TYPE_VIDEO
-            + " AND "
-            + MediaStore.Files.FileColumns.DATA + " like ? "
-            )
+    private val selection = (MediaStore.Files.FileColumns.DATA + " like ? ")
 
     private var selectionargs = arrayOf("%${context.createAlbumStorage()}%")
 
@@ -53,19 +48,21 @@ class MediaStoreService(private val context: Context) {
                 val title = getString(cursor, getColumnIndex(cursor, projection[2]))
                 val name = getString(cursor, getColumnIndex(cursor, projection[3]))
                 val mediaType = getLong(cursor, getColumnIndex(cursor, projection[4]))
-                val mDuration = if (mediaType.toInt() == MEDIA_TYPE_VIDEO) {
-                    getLong(cursor, getColumnIndex(cursor, projection[5]))
-                } else -1
-                val duration = kotlin.runCatching {
-                    if (mDuration <= 0) {
-                        ""
-                    } else {
-                        val seconds = (TimeUnit.MILLISECONDS.toSeconds(mDuration) % 60).toInt()
-                        val minutes = (TimeUnit.MILLISECONDS.toMinutes(mDuration)).toInt()
-                        String.format(" %02d:%02d", minutes, seconds)
-                    }
-                }.getOrElse { "" }
-                list.add(GalleryModel(id, path, title, name, duration))
+                if (mediaType.toInt() == MEDIA_TYPE_VIDEO || mediaType.toInt() == MEDIA_TYPE_IMAGE) {
+                    val mDuration = if (mediaType.toInt() == MEDIA_TYPE_VIDEO) {
+                        getLong(cursor, getColumnIndex(cursor, projection[5]))
+                    } else -1
+                    val duration = kotlin.runCatching {
+                        if (mDuration <= 0) {
+                            ""
+                        } else {
+                            val seconds = (TimeUnit.MILLISECONDS.toSeconds(mDuration) % 60).toInt()
+                            val minutes = (TimeUnit.MILLISECONDS.toMinutes(mDuration)).toInt()
+                            String.format(" %02d:%02d", minutes, seconds)
+                        }
+                    }.getOrElse { "" }
+                    list.add(GalleryModel(id, path, title, name, duration))
+                }
             }
         }
         cursor?.close()

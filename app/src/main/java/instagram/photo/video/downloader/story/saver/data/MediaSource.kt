@@ -4,9 +4,9 @@ data class MediaSource(
     var id: String = "",
     var resources: List<ResourceModel> = emptyList(),
     var caption: String = "",
-    val profilePicUrl: String = "",
+    var profilePicUrl: String = "",
     var username: String = "",
-    val fullName: String = ""
+    var fullName: String = ""
 ) {
     data class ResourceModel(
         val id: String,
