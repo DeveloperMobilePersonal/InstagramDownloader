@@ -31,4 +31,12 @@
     <string name="redirect_url">https://taptik.net/instagram-downloader</string>
     <string name="base_url">https://api.instagram.com/</string>
     <string name="request_url">https://api.instagram.com/oauth/authorize/?client_id=%s&amp;redirect_uri=%s&amp;response_type=token</string>
+    <string name="txt_waring_permission">Access warning</string>
+    <string name="txt_grant_permission"><![CDATA[IGDownloader uses Read &amp; Write memory on the device to save videos and music.]]></string>
+    <string name="txt_permission">Grant permission</string>
+
+    <string name="txt_rate_title">App reviews</string>
+    <string name="txt_rate_message">Do you like the app? Please rate and leave us feedback. Thank you for loving and trusting IGDownloader.</string>
+    <string name="txt_rate">Rate now</string>
+    <string name="txt_share">Share</string>
 </resources>

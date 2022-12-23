@@ -8,17 +8,25 @@
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ic_cloud_computing.xml" value="0.218" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ic_download.xml" value="0.1745" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ic_instagram.xml" value="0.1745" />
+        <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ic_share_2.xml" value="0.2235" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ic_video.xml" value="0.1765" />
+        <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ic_warning.xml" value="0.2265" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ripper_cta_gray.xml" value="0.2235" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ripper_cta_watch.xml" value="0.2235" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ripper_cta_watch_video.xml" value="0.2275" />
+        <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ripple_btn_grant_permission.xml" value="0.2265" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/ripple_btn_gray.xml" value="0.2235" />
+        <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/shape_circle.xml" value="0.185" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/shape_circle_red.xml" value="0.1745" />
+        <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/shape_drawable_ads.xml" value="0.1375" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/shape_fade_gallery_video.xml" value="0.1765" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/shape_loading_glide.xml" value="0.1765" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/drawable/shape_rl_edt_dark.xml" value="0.201" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/layout/activity_gallery.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/layout/activity_preview.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/layout/alert_permission_error.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/layout/alert_rate.xml" value="0.21666666666666667" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/layout/downloader_alert_layout.xml" value="0.4" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/layout/error_alert_layout.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/Dev/AndroidStudioProjects/InstagramDownloader/app/src/main/res/layout/item_gallery.xml" value="0.21666666666666667" />

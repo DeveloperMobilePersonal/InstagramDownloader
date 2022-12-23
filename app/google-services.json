@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "11931391209",
+    "project_id": "instagramdownloader-2ac83",
+    "storage_bucket": "instagramdownloader-2ac83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11931391209:android:dda00ea5cce5aa0b010c78",
+        "android_client_info": {
+          "package_name": "instagram.photo.video.downloader.story.saver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11931391209-5998fvcrjpau7e3r77u2dv0gmfvsmrpp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKzPfn7eWlh0e1NQtWpWW9fjaW5U7FNds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "11931391209-5998fvcrjpau7e3r77u2dv0gmfvsmrpp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -83,7 +83,7 @@
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/frameBannerAds"
             app:layout_constraintTop_toBottomOf="@+id/cardView">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -300,6 +300,20 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <FrameLayout
+            android:id="@+id/frameBannerAds"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_1sdp"
+            android:background="@drawable/shape_drawable_ads"
+            android:padding="1.2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

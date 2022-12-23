@@ -9,6 +9,9 @@ import instagram.photo.video.downloader.story.saver.data.MediaSource
 
 const val KEY_URL_CACHE = "key_url_cache"
 const val KEY_MEDIA_SOURCE_CACHE = "key_media_source_cache"
+const val KEY_RATE= "key_rate"
+const val KEY_COUNT_DOWNLOADER= "key_count_downloader"
+const val KEY_PREVIEW_CACHE= "key_preview_cache"
 
 val Context.getSharedPreferences: SharedPreferences
     get() = getSharedPreferences(

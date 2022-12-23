@@ -1,9 +1,13 @@
 package instagram.photo.video.downloader.story.saver.base
 
+import android.os.Build
 import android.os.Bundle
+import android.util.DisplayMetrics
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.google.android.gms.ads.AdSize
 import org.koin.android.scope.AndroidScopeComponent
 import org.koin.core.scope.Scope
 import video.photo.instagram.downloader.story.module.contextAwareActivityScope
@@ -67,6 +71,30 @@ abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity(), AndroidS
 
     open fun loadAd() {
 
+    }
+
+    fun adSize(frameBannerAds: FrameLayout): AdSize {
+        val outMetrics = DisplayMetrics()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val display = display
+            display?.getRealMetrics(outMetrics)
+        } else {
+            @Suppress("DEPRECATION")
+            val display = windowManager.defaultDisplay
+            @Suppress("DEPRECATION")
+            display.getMetrics(outMetrics)
+        }
+
+        val density = outMetrics.density
+
+        var adWidthPixels = frameBannerAds.width.toFloat()
+        if (adWidthPixels == 0f) {
+            adWidthPixels = outMetrics.widthPixels.toFloat()
+        }
+
+        val adWidth = (adWidthPixels / density).toInt()
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth)
     }
 
 }

@@ -48,10 +48,13 @@ class MediaStoreService(private val context: Context) {
                 val title = getString(cursor, getColumnIndex(cursor, projection[2]))
                 val name = getString(cursor, getColumnIndex(cursor, projection[3]))
                 val mediaType = getLong(cursor, getColumnIndex(cursor, projection[4]))
-                if (mediaType.toInt() == MEDIA_TYPE_VIDEO || mediaType.toInt() == MEDIA_TYPE_IMAGE) {
-                    val mDuration = if (mediaType.toInt() == MEDIA_TYPE_VIDEO) {
-                        getLong(cursor, getColumnIndex(cursor, projection[5]))
-                    } else -1
+                if (mediaType.toInt() == MEDIA_TYPE_VIDEO) {
+                    val mDuration = kotlin.runCatching {
+                        getLong(
+                            cursor,
+                            getColumnIndex(cursor, projection[5])
+                        )
+                    }.getOrElse { -1 }
                     val duration = kotlin.runCatching {
                         if (mDuration <= 0) {
                             ""
@@ -61,7 +64,9 @@ class MediaStoreService(private val context: Context) {
                             String.format(" %02d:%02d", minutes, seconds)
                         }
                     }.getOrElse { "" }
-                    list.add(GalleryModel(id, path, title, name, duration))
+                    list.add(GalleryModel(id, path, title, name, duration, MEDIA_TYPE_VIDEO))
+                } else if (mediaType.toInt() == MEDIA_TYPE_IMAGE) {
+                    list.add(GalleryModel(id, path, title, name, "", MEDIA_TYPE_IMAGE))
                 }
             }
         }

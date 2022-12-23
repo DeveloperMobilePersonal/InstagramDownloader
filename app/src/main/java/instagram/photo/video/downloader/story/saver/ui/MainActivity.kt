@@ -3,18 +3,19 @@ package instagram.photo.video.downloader.story.saver.ui
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import com.google.gson.GsonBuilder
 import instagram.photo.video.downloader.story.saver.R
 import instagram.photo.video.downloader.story.saver.base.BaseActivity
 import instagram.photo.video.downloader.story.saver.base.LogManager
 import instagram.photo.video.downloader.story.saver.data.*
 import instagram.photo.video.downloader.story.saver.databinding.ActivityMainBinding
-import instagram.photo.video.downloader.story.saver.dialog.DialogDownloader
-import instagram.photo.video.downloader.story.saver.dialog.DialogDownloaderListener
-import instagram.photo.video.downloader.story.saver.dialog.DialogError
-import instagram.photo.video.downloader.story.saver.dialog.DialogLoading
+import instagram.photo.video.downloader.story.saver.dialog.*
 import instagram.photo.video.downloader.story.saver.ex.*
 import instagram.photo.video.downloader.story.saver.permission.PermissionManager
+import instagram.photo.video.downloader.story.saver.permission.RQ_CODE_RESUME_READ_EXTERNAL_STORAGE
+import instagram.photo.video.downloader.story.saver.unit.ID_MAIN_BANNER
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -33,14 +34,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
     val dialogDownloader by inject<DialogDownloader>()
     val dataService by inject<DataService> { parametersOf(lifecycleScope) }
     val downloaderService by inject<DownloaderService> { parametersOf(lifecycleScope) }
-
+    private val dialogPermissionError by inject<DialogPermissionError>()
     private val permissionManager by inject<PermissionManager>()
+    private val dialogRate by inject<DialogRate>()
 
     override fun loadUI(): Int {
         return R.layout.activity_main
     }
 
     override fun createUI() {
+        loadBannerAdmob()
         addTextChanged()
         onClick()
         lifecycleScope.launch(Dispatchers.IO) {
@@ -67,16 +70,35 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
         }
     }
 
-    override fun onPermissionAllow() {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        permissionManager.onRequestPermissionsResult(requestCode)
+    }
 
+    override fun onPermissionAllow() {
+        if (isActive()) dialogPermissionError.hideUI()
     }
 
     override fun onPermissionDenied() {
-
+        if (isActive()) {
+            dialogPermissionError.listenGrantPermission = {
+                if (isActive()) permissionManager.requestPermissionsReadWriteStorage(this)
+            }
+            dialogPermissionError.showUI()
+        }
     }
 
     override fun onPermissionAskAgain() {
-
+        if (isActive()) {
+            dialogPermissionError.listenGrantPermission = {
+                permissionManager.openAppSettings(RQ_CODE_RESUME_READ_EXTERNAL_STORAGE)
+            }
+            dialogPermissionError.showUI()
+        }
     }
 
     override fun onDataMediaSource(mediaSource: MediaSource) {
@@ -93,6 +115,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
 
     override fun onDownloadStart() {
         if (!isActive()) return
+        dialogError.hideUI()
         dialogDownloader.showUiDownload()
     }
 
@@ -124,10 +147,21 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
     override fun onDialogDownloaderComplete() {
         if (!isActive()) return
         toastShow(R.string.txt_done_download)
+        viewBinding.edt.setText("")
         dialogDownloader.hideUI()
         val mediaSource = dataService.mediaSource
         if (mediaSource != null) {
             loadCardPreview(mediaSource)
+        }
+        val rate = getSharedBoolean(KEY_RATE, false)
+        val countDownloader = getSharedInt(KEY_COUNT_DOWNLOADER, 0)
+        if (countDownloader == 2) {
+            putShared(KEY_COUNT_DOWNLOADER, 0)
+        } else {
+            putShared(KEY_COUNT_DOWNLOADER, countDownloader + 1)
+        }
+        if (!rate && countDownloader % 2 == 0) {
+            dialogRate.showUI()
         }
     }
 }

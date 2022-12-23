@@ -4,9 +4,7 @@ import instagram.photo.video.downloader.story.saver.data.ClipManager
 import instagram.photo.video.downloader.story.saver.data.DataService
 import instagram.photo.video.downloader.story.saver.data.DownloaderService
 import instagram.photo.video.downloader.story.saver.data.scanMedia.MediaStoreService
-import instagram.photo.video.downloader.story.saver.dialog.DialogDownloader
-import instagram.photo.video.downloader.story.saver.dialog.DialogError
-import instagram.photo.video.downloader.story.saver.dialog.DialogLoading
+import instagram.photo.video.downloader.story.saver.dialog.*
 import instagram.photo.video.downloader.story.saver.permission.PermissionManager
 import instagram.photo.video.downloader.story.saver.ui.MainActivity
 import instagram.photo.video.downloader.story.saver.ui.gallery.GalleryActivity
@@ -24,6 +22,8 @@ val activityModule = module {
         factory { DataService(get(), get(), get()) }
         factory { DownloaderService(get(), get(), get()) }
         factory { DialogDownloader(get(), get()) }
+        factory { DialogPermissionError(get()) }
+        factory { DialogRate(get()) }
     }
     scope<GalleryActivity> {
         viewModel{GalleryViewModel(MediaStoreService(get()))}

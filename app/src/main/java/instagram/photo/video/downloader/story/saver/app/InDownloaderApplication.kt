@@ -5,6 +5,8 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDex
 import com.androidnetworking.AndroidNetworking
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import instagram.photo.video.downloader.story.saver.module.listModule
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
@@ -21,11 +23,11 @@ class InDownloaderApplication : Application() {
             androidContext(applicationContext)
             modules(listModule)
         }
-        /*val builder = RequestConfiguration.Builder()
+        val builder = RequestConfiguration.Builder()
         builder.setTestDeviceIds(
             listOf("519E8BF3AF97EB4B96C4A3F9A143DBE5")
         )
-        MobileAds.setRequestConfiguration(builder.build())*/
+        MobileAds.setRequestConfiguration(builder.build())
         val okHttpClient = OkHttpClient.Builder()
             .writeTimeout(10000, TimeUnit.MILLISECONDS)
             .readTimeout(10000, TimeUnit.MILLISECONDS)

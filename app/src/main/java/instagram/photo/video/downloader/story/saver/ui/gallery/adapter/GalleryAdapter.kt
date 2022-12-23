@@ -17,7 +17,7 @@ class GalleryAdapter(private val context: Context) :
     ListAdapter<GalleryModel, GalleryViewHolder>(AsyncDifferConfig.Builder(Diff()).build()) {
 
     private val layoutInflater: LayoutInflater = LayoutInflater.from(context)
-    private var listener: OnItemGalleryListener? = null
+    var listener: OnItemGalleryListener? = null
     private var animateScale = false
 
     class Diff : DiffUtil.ItemCallback<GalleryModel>() {

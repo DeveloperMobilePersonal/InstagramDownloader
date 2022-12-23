@@ -1,16 +1,37 @@
 package instagram.photo.video.downloader.story.saver.ui
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import instagram.photo.video.downloader.story.saver.R
 import instagram.photo.video.downloader.story.saver.app.ContextGlobal
+import instagram.photo.video.downloader.story.saver.base.LogManager
 import instagram.photo.video.downloader.story.saver.data.MediaSource
 import instagram.photo.video.downloader.story.saver.ex.*
 import instagram.photo.video.downloader.story.saver.ui.gallery.GalleryActivity
+import instagram.photo.video.downloader.story.saver.unit.ID_MAIN_BANNER
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+
+fun MainActivity.loadBannerAdmob() {
+    val adView = AdView(this)
+    viewBinding.frameBannerAds.removeAllViews()
+    viewBinding.frameBannerAds.addView(adView)
+    adView.adUnitId = ID_MAIN_BANNER
+    adView.setAdSize(adSize(viewBinding.frameBannerAds))
+    adView.loadObserver {
+        if (isActive() && it.not()) {
+            viewBinding.frameBannerAds.gone()
+        }
+    }
+    val adRequest = AdRequest.Builder().build()
+    adView.loadAd(adRequest)
+}
 
 fun MainActivity.loadCardPreview(mediaSourceCache: MediaSource? = null) {
     if (!isActive()) return
@@ -40,8 +61,7 @@ fun MainActivity.fetch(url: String) {
         toastShow(R.string.txt_url_not_illegal)
     } else {
         dialogLoading.showUI()
-        dataService.fetch(urlModel)
-    if (urlModel.isStory) {
+        if (urlModel.isStory) {
             dataService.fetchStory(urlModel)
         } else {
             dataService.fetch(urlModel)
@@ -91,6 +111,19 @@ fun MainActivity.onClick() {
             startActivity(launchIntent)
         }.getOrElse {
             toastShow(R.string.txt_not_instagram)
+        }
+    }
+    viewBinding.guide.btGuideVideoNow.click {
+        val youtubeID = "V7DdNmBBsE8"
+        val intentApp = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:$youtubeID"))
+        val intentBrowser =
+            Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=$youtubeID"))
+        try {
+            this.startActivity(intentApp)
+        } catch (ex: ActivityNotFoundException) {
+            kotlin.runCatching {
+                this.startActivity(intentBrowser)
+            }
         }
     }
 }

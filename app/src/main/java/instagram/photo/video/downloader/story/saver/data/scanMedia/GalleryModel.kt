@@ -5,5 +5,6 @@ data class GalleryModel(
     val path: String,
     val title: String,
     val displayName: String,
-    val duration: String? = null
+    val duration: String? = null,
+    val type: Int = -1
 )
