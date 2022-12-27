@@ -10,4 +10,6 @@
     <color name="black181a20">#181a20</color>
     <color name="red">#E53935</color>
     <color name="gray5A5757">#C4353535</color>
+    <color name="grayE5E5E5">#E5E5E5</color>
+    <color name="ff4500">#FF4500</color>
 </resources>

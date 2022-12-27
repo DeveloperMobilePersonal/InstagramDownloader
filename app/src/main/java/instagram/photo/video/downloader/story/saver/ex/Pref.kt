@@ -12,6 +12,7 @@ const val KEY_MEDIA_SOURCE_CACHE = "key_media_source_cache"
 const val KEY_RATE= "key_rate"
 const val KEY_COUNT_DOWNLOADER= "key_count_downloader"
 const val KEY_PREVIEW_CACHE= "key_preview_cache"
+const val KEY_DIAMOND= "key_diamond"
 
 val Context.getSharedPreferences: SharedPreferences
     get() = getSharedPreferences(

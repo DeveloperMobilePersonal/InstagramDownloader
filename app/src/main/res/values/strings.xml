@@ -1,5 +1,14 @@
 <resources>
-    <string name="app_name">IGDownloader</string>
+
+    <string name="client_id" translatable="false">717592539578236</string>
+    <string name="redirect_url" translatable="false">https://taptik.net/instagram-downloader</string>
+    <string name="base_url" translatable="false">https://api.instagram.com/</string>
+    <string name="request_url" translatable="false">https://api.instagram.com/oauth/authorize/?client_id=%s&amp;redirect_uri=%s&amp;response_type=token</string>
+
+    <string name="app_name" translatable="false">IGDownloader</string>
+
+    <string name="txt_grant_permission" translatable="false"><![CDATA[IGDownloader uses Read &amp; Write memory on the device to save videos and music.]]></string>
+
     <string name="txt_download">Download</string>
     <string name="txt_paste_link">Paste link</string>
     <string name="txt_hide_edt">Paste Instagram link here…</string>
@@ -27,16 +36,12 @@
     <string name="txt_watch_now">Watch now</string>
     <string name="txt_no_data">No data</string>
 
-    <string name="client_id">717592539578236</string>
-    <string name="redirect_url">https://taptik.net/instagram-downloader</string>
-    <string name="base_url">https://api.instagram.com/</string>
-    <string name="request_url">https://api.instagram.com/oauth/authorize/?client_id=%s&amp;redirect_uri=%s&amp;response_type=token</string>
     <string name="txt_waring_permission">Access warning</string>
-    <string name="txt_grant_permission"><![CDATA[IGDownloader uses Read &amp; Write memory on the device to save videos and music.]]></string>
     <string name="txt_permission">Grant permission</string>
 
     <string name="txt_rate_title">App reviews</string>
     <string name="txt_rate_message">Do you like the app? Please rate and leave us feedback. Thank you for loving and trusting IGDownloader.</string>
     <string name="txt_rate">Rate now</string>
     <string name="txt_share">Share</string>
+    <string name="txt_load">Loading…</string>
 </resources>

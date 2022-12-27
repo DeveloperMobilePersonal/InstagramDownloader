@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_download">Unduh</string>
+    <string name="txt_paste_link">Tempel tautan</string>
+    <string name="txt_hide_edt">Tempel tautan Instagram di sini…</string>
+    <string name="txt_url_not_illegal">Tautan tidak valid</string>
+    <string name="txt_not_instagram">Aplikasi Instagram tidak ditemukan</string>
+    <string name="txt_waring_call_api">Periksa URL</string>
+    <string name="txt_message_download">Proses ini mungkin memakan waktu beberapa menit, harap tunggu…</string>
+    <string name="txt_error">Terjadi kesalahan</string>
+    <string name="txt_error_message_request">Silahkan cek kembali link Instagram, mungkin link yang anda gunakan sedang dalam mode private. Silakan gunakan tautan Instagram yang dibagikan komunitas, maaf atas ketidaknyamanan ini!</string>
+    <string name="txt_understood">Mengerti</string>
+    <string name="txt_waring_download">Mengunduh</string>
+    <string name="txt_waring_call_api_message">Unduhan ini mungkin memakan waktu beberapa menit, harap tunggu…</string>
+    <string name="txt_done_download">Unduh berhasil</string>
+
+    <string name="txt_guide">Unduh Panduan</string>
+    <string name="txt_guide_1">1️⃣ Buka aplikasi Instagram di ponsel Anda.</string>
+    <string name="txt_guide_2">2️⃣ Pilih postingan yang ingin Anda unduh(postingan harus publik)</string>
+    <string name="txt_guide_3">3️⃣ Klik ikon MENU (3 titik vertikal) di kanan bawah.</string>
+    <string name="txt_guide_4">4️⃣ Klik tombol SALIN LINK.</string>
+    <string name="txt_guide_5">5️⃣ Kembali ke InDownloader, aplikasi akan memeriksa jalur secara otomatis.</string>
+    <string name="txt_guide_6">6️⃣ Tunggu server kami melakukan pekerjaannya lalu simpan video ke perangkat Anda.</string>
+    <string name="txt_guide_video">Tutorial dengan video</string>
+    <string name="txt_option_download">Pilihan untuk mengunduh</string>
+    <string name="txt_message_option_download">Pilih untuk mengunduh sesuai kebutuhan Anda. Semuanya benar-benar GRATIS.</string>
+    <string name="txt_watch_now">Tonton sekarang</string>
+    <string name="txt_no_data">Tidak ada data</string>
+
+    <string name="txt_waring_permission">Peringatan akses</string>
+    <string name="txt_permission">Berikan izin</string>
+
+    <string name="txt_rate_title">Ulasan aplikasi</string>
+    <string name="txt_rate_message">Apakah Anda menyukai aplikasi ini? Silakan beri peringkat dan beri kami umpan balik. Terima kasih telah mencintai dan mempercayai IGDownloader.</string>
+    <string name="txt_rate">Nilai sekarang</string>
+    <string name="txt_share">Bagikan</string>
+    <string name="txt_load">Memuat…</string>
+</resources>

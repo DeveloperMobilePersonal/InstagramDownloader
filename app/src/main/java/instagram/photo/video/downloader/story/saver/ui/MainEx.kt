@@ -8,15 +8,61 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import instagram.photo.video.downloader.story.saver.R
+import instagram.photo.video.downloader.story.saver.ads.appopen.LockAd
+import instagram.photo.video.downloader.story.saver.ads.inter.InterShowListener
 import instagram.photo.video.downloader.story.saver.app.ContextGlobal
 import instagram.photo.video.downloader.story.saver.base.LogManager
 import instagram.photo.video.downloader.story.saver.data.MediaSource
 import instagram.photo.video.downloader.story.saver.ex.*
 import instagram.photo.video.downloader.story.saver.ui.gallery.GalleryActivity
+import instagram.photo.video.downloader.story.saver.ui.preview.PreviewActivity
 import instagram.photo.video.downloader.story.saver.unit.ID_MAIN_BANNER
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+
+fun MainActivity.openScreenDownloader() {
+    viewBinding.lock.show()
+    LockAd.set(true)
+    interManager.showAd(this, object : InterShowListener {
+        override fun onAdInterClose(failToShowAd: Boolean) {
+            if (isActive()) {
+                LockAd.set(false)
+                viewBinding.lock.gone()
+                toastShow(R.string.txt_done_download)
+                val intent = Intent(this@openScreenDownloader, GalleryActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        override fun onAdInterFailShow() {
+            if (isActive()) {
+                LockAd.set(false)
+                viewBinding.lock.gone()
+                val intent = Intent(this@openScreenDownloader, GalleryActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        override fun onAdInterShow() {
+            if (isActive()) {
+                viewBinding.lock.show()
+                LockAd.set(true)
+            }
+        }
+    })
+}
+
+fun MainActivity.loadInterAdmob(){
+    LockAd.set(false)
+    val countDownloader = getSharedInt(KEY_COUNT_DOWNLOADER, 0)
+    val rate = getSharedBoolean(KEY_RATE, false)
+    if (rate) {
+        if (countDownloader == 1) interManager.loadAd()
+    } else {
+        if (countDownloader == 1) interManager.loadAd()
+    }
+}
 
 fun MainActivity.loadBannerAdmob() {
     val adView = AdView(this)
@@ -25,6 +71,7 @@ fun MainActivity.loadBannerAdmob() {
     adView.adUnitId = ID_MAIN_BANNER
     adView.setAdSize(adSize(viewBinding.frameBannerAds))
     adView.loadObserver {
+        isErrorBannerAd = !it
         if (isActive() && it.not()) {
             viewBinding.frameBannerAds.gone()
         }

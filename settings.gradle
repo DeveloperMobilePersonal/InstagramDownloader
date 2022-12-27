@@ -5,9 +5,6 @@ pluginManagement {
         mavenCentral()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven {
-            url 'https://artifact.bytedance.com/repository/pangle/'
-        }
     }
 }
 dependencyResolutionManagement {
@@ -17,9 +14,6 @@ dependencyResolutionManagement {
         mavenCentral()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven {
-            url 'https://artifact.bytedance.com/repository/pangle/'
-        }
     }
 }
 rootProject.name = "InstagramDownloader"

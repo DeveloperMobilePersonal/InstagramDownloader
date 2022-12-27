@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import instagram.photo.video.downloader.story.saver.R
+import instagram.photo.video.downloader.story.saver.ads.appopen.AdAppOpenApplication
+import instagram.photo.video.downloader.story.saver.ads.appopen.AdAppOpenApplicationListener
+import instagram.photo.video.downloader.story.saver.ads.appopen.AppOpenManager
 import instagram.photo.video.downloader.story.saver.base.BaseActivity
 import instagram.photo.video.downloader.story.saver.data.scanMedia.GalleryModel
 import instagram.photo.video.downloader.story.saver.databinding.ActivityGalleryBinding
@@ -15,10 +18,13 @@ import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class GalleryActivity : BaseActivity<ActivityGalleryBinding>(), OnItemGalleryListener {
+class GalleryActivity : BaseActivity<ActivityGalleryBinding>(),
+    OnItemGalleryListener,
+    AdAppOpenApplicationListener {
 
     private val viewModel by viewModel<GalleryViewModel>()
     private val galleryAdapter: GalleryAdapter by inject()
+    private val adAppOpenApplication by inject<AdAppOpenApplication>()
 
     override fun loadUI(): Int {
         return R.layout.activity_gallery
@@ -38,6 +44,11 @@ class GalleryActivity : BaseActivity<ActivityGalleryBinding>(), OnItemGalleryLis
         viewModel.fetch()
     }
 
+    override fun onResume() {
+        adAppOpenApplication.addListener(this)
+        super.onResume()
+    }
+
     override fun destroyUI() {
 
     }
@@ -49,6 +60,10 @@ class GalleryActivity : BaseActivity<ActivityGalleryBinding>(), OnItemGalleryLis
             val intent = Intent(this@GalleryActivity, PreviewActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onAdStartAppOpen(appOpenManager: AppOpenManager) {
+        if (isActive()) appOpenManager.showAd(this)
     }
 
 }

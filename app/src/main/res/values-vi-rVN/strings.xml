@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_download">Tải xuống</string>
+    <string name="txt_paste_link">Dán liên kết</string>
+    <string name="txt_hide_edt">Dán liên kết Instagram vào đây…</string>
+    <string name="txt_url_not_illegal">Liên kết không hợp lệ</string>
+    <string name="txt_not_instagram">Không tìm thấy ứng dụng Instagram</string>
+    <string name="txt_waring_call_api">Kiểm tra URL</string>
+    <string name="txt_message_download">Quá trình này có thể mất vài phút, vui lòng đợi…</string>
+    <string name="txt_error">Xảy ra lỗi</string>
+    <string name="txt_error_message_request">Vui lòng kiểm tra lại liên kết Instagram, có thể liên kết bạn sử dụng ở chế độ riêng tư. Vui lòng sử dụng các liên kết Instagram được cộng đồng chia sẻ, xin lỗi vì sự bất tiện này!</string>
+    <string name="txt_understood">Đã hiểu</string>
+    <string name="txt_waring_download">Đang tải xuống</string>
+    <string name="txt_waring_call_api_message">Quá trình tải xuống có thể mất vài phút, vui lòng đợi…</string>
+    <string name="txt_done_download">Tải xuống thành công</string>
+
+    <string name="txt_guide">Hướng dẫn tải xuống</string>
+    <string name="txt_guide_1">1️⃣ Mở ứng dụng Instagram trên điện thoại của bạn.</string>
+    <string name="txt_guide_2">2️⃣ Chọn bất kỳ bài đăng nào bạn muốn tải xuống (bài đăng phải ở chế độ công khai)</string>
+    <string name="txt_guide_3">3️⃣ Nhấp vào biểu tượng MENU (3 dấu chấm dọc) ở dưới cùng bên phải.</string>
+    <string name="txt_guide_4">4️⃣ Nhấp vào nút SAO CHÉP LIÊN KẾT.</string>
+    <string name="txt_guide_5">5️⃣ Quay lại InDownloader, ứng dụng sẽ tự kiểm tra đường dẫn.</string>
+    <string name="txt_guide_6">6️⃣ Đợi máy chủ của chúng tôi thực hiện công việc rồi lưu video vào thiết bị của bạn.</string>
+    <string name="txt_guide_video">Hướng dẫn bằng video</string>
+    <string name="txt_option_download">Tùy chọn tải xuống</string>
+    <string name="txt_message_option_download">Chọn tải xuống theo nhu cầu của bạn. Mọi thứ hoàn toàn MIỄN PHÍ.</string>
+    <string name="txt_watch_now">Xem ngay</string>
+    <string name="txt_no_data">Không có dữ liệu</string>
+
+    <string name="txt_waring_permission">Cảnh báo truy cập</string>
+    <string name="txt_permission">Cấp quyền</string>
+
+    <string name="txt_rate_title">Đánh giá ứng dụng</string>
+    <string name="txt_rate_message">Bạn có thích ứng dụng này không? Vui lòng đánh giá và để lại cho chúng tôi thông tin phản hồi. Cảm ơn bạn đã yêu mến và tin tưởng IGTdownloader.</string>
+    <string name="txt_rate">Đánh giá ngay</string>
+    <string name="txt_share">Chia sẻ</string>
+    <string name="txt_load">Đang tải…</string>
+</resources>

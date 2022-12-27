@@ -1,21 +1,19 @@
 package instagram.photo.video.downloader.story.saver.ui
 
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import androidx.lifecycle.lifecycleScope
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
 import com.google.gson.GsonBuilder
 import instagram.photo.video.downloader.story.saver.R
+import instagram.photo.video.downloader.story.saver.ads.appopen.AdAppOpenApplication
+import instagram.photo.video.downloader.story.saver.ads.appopen.AdAppOpenApplicationListener
+import instagram.photo.video.downloader.story.saver.ads.appopen.AppOpenManager
+import instagram.photo.video.downloader.story.saver.ads.inter.InterManager
 import instagram.photo.video.downloader.story.saver.base.BaseActivity
-import instagram.photo.video.downloader.story.saver.base.LogManager
 import instagram.photo.video.downloader.story.saver.data.*
 import instagram.photo.video.downloader.story.saver.databinding.ActivityMainBinding
 import instagram.photo.video.downloader.story.saver.dialog.*
 import instagram.photo.video.downloader.story.saver.ex.*
 import instagram.photo.video.downloader.story.saver.permission.PermissionManager
 import instagram.photo.video.downloader.story.saver.permission.RQ_CODE_RESUME_READ_EXTERNAL_STORAGE
-import instagram.photo.video.downloader.story.saver.unit.ID_MAIN_BANNER
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -26,7 +24,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
     PermissionManager.PermissionListener,
     DataListener,
     DownloaderListener,
-    DialogDownloaderListener {
+    DialogDownloaderListener,
+    AdAppOpenApplicationListener {
 
     val clipManager by inject<ClipManager>()
     val dialogLoading by inject<DialogLoading>()
@@ -37,6 +36,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
     private val dialogPermissionError by inject<DialogPermissionError>()
     private val permissionManager by inject<PermissionManager>()
     private val dialogRate by inject<DialogRate>()
+    private val adAppOpenApplication by inject<AdAppOpenApplication>()
+    val interManager by inject<InterManager>()
+    var isErrorBannerAd = false
 
     override fun loadUI(): Int {
         return R.layout.activity_main
@@ -44,6 +46,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
 
     override fun createUI() {
         loadBannerAdmob()
+        loadInterAdmob()
         addTextChanged()
         onClick()
         lifecycleScope.launch(Dispatchers.IO) {
@@ -55,8 +58,14 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
         permissionManager.requestPermissionsReadWriteStorage(this)
     }
 
-    override fun destroyUI() {
+    override fun onResume() {
+        adAppOpenApplication.addListener(this)
+        super.onResume()
+    }
 
+    override fun destroyUI() {
+        permissionManager.remove()
+        adAppOpenApplication.unregisterLifecycleOwner()
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -115,6 +124,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
 
     override fun onDownloadStart() {
         if (!isActive()) return
+        val countDownloader = getSharedInt(KEY_COUNT_DOWNLOADER, 0)
+        if (countDownloader == 1) interManager.loadAd()
         dialogError.hideUI()
         dialogDownloader.showUiDownload()
     }
@@ -146,7 +157,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
 
     override fun onDialogDownloaderComplete() {
         if (!isActive()) return
-        toastShow(R.string.txt_done_download)
         viewBinding.edt.setText("")
         dialogDownloader.hideUI()
         val mediaSource = dataService.mediaSource
@@ -162,6 +172,40 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),
         }
         if (!rate && countDownloader % 2 == 0) {
             dialogRate.showUI()
+        } else if (interManager.isLoadAd() && interManager.isReadyAd()) {
+            openScreenDownloader()
+        } else {
+            toastShow(R.string.txt_done_download)
+        }
+    }
+
+    override fun onAdStartAppOpen(appOpenManager: AppOpenManager) {
+        if (!isActive()) return
+        if (isErrorBannerAd) {
+            viewBinding.frameBannerAds.gone()
+        } else {
+            viewBinding.frameBannerAds.hide()
+        }
+        appOpenManager.showAd(this)
+    }
+
+    override fun onAdShowAppOpen() {
+        if (isActive()) {
+            if (isErrorBannerAd) {
+                viewBinding.frameBannerAds.gone()
+            } else {
+                viewBinding.frameBannerAds.hide()
+            }
+        }
+    }
+
+    override fun onAdCloseAppOpen() {
+        if (isActive()) {
+            if (isErrorBannerAd) {
+                viewBinding.frameBannerAds.gone()
+            } else {
+                viewBinding.frameBannerAds.show()
+            }
         }
     }
 }

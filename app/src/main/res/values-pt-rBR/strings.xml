@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="txt_download">Baixar</string>
+    <string name="txt_paste_link">Colar link</string>
+    <string name="txt_hide_edt">Cole o link do Instagram aqui…</string>
+    <string name="txt_url_not_illegal">Link inválido</string>
+    <string name="txt_not_instagram">Aplicativo do Instagram não encontrado</string>
+    <string name="txt_waring_call_api">Verificar URL</string>
+    <string name="txt_message_download">Este processo pode demorar alguns minutos, aguarde…</string>
+    <string name="txt_error">Ocorreu um erro</string>
+    <string name="txt_error_message_request">Verifique o link do Instagram novamente, talvez o link que você usa esteja no modo privado. Por favor, use os links do Instagram compartilhados pela comunidade, desculpe pelo inconveniente!</string>
+    <string name="txt_understood">Entendido</string>
+    <string name="txt_waring_download">Baixando</string>
+    <string name="txt_waring_call_api_message">Este download pode demorar alguns minutos, aguarde…</string>
+    <string name="txt_done_download">Baixe com sucesso</string>
+
+    <string name="txt_guide">Baixar guia</string>
+    <string name="txt_guide_1">1️⃣ Abra o aplicativo Instagram em seu telefone.</string>
+    <string name="txt_guide_2">2️⃣ Selecione qualquer postagem que deseja baixar (a postagem deve ser pública)</string>
+    <string name="txt_guide_3">3️⃣ Clique no ícone MENU (3 pontos verticais) no canto inferior direito.</string>
+    <string name="txt_guide_4">4️⃣ Clique no botão COPIAR LINK.</string>
+    <string name="txt_guide_5">5️⃣ De volta ao InDownloader, o aplicativo verificará automaticamente o caminho.</string>
+    <string name="txt_guide_6">6️⃣ Aguarde nosso servidor fazer o trabalho e salve o vídeo em seu dispositivo.</string>
+    <string name="txt_guide_video">Tutorial com vídeo</string>
+    <string name="txt_option_download">Opção para baixar</string>
+    <string name="txt_message_option_download">Escolha fazer o download de acordo com suas necessidades. Tudo é totalmente GRATUITO.</string>
+    <string name="txt_watch_now">Assista agora</string>
+    <string name="txt_no_data">Sem dados</string>
+
+    <string name="txt_waring_permission">Aviso de acesso</string>
+    <string name="txt_permission">Conceder permissão</string>
+
+    <string name="txt_rate_title">Avaliações de aplicativos</string>
+    <string name="txt_rate_message">Você gosta do aplicativo? Por favor, avalie e deixe-nos um feedback. Obrigado por amar e confiar no IGDownloader.</string>
+    <string name="txt_rate">Avalie agora</string>
+    <string name="txt_share">Compartilhar</string>
+    <string name="txt_load">Carregando…</string>
+</resources>
