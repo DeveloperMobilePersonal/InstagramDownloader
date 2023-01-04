@@ -10,11 +10,11 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "instagram.photo.video.downloader.story.saver"
+        applicationId "com.instagram.downloader.video.photo.saver"
         minSdk 23
         targetSdk 32
-        versionCode 4
-        versionName "1.0.2"
+        versionCode 1
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

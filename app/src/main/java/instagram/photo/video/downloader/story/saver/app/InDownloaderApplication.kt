@@ -25,7 +25,7 @@ class InDownloaderApplication : Application() {
         }
         val builder = RequestConfiguration.Builder()
         builder.setTestDeviceIds(
-            listOf("519E8BF3AF97EB4B96C4A3F9A143DBE5")
+            listOf("C9B02D012C6EE4CFE7C9433F970E943C")
         )
         MobileAds.setRequestConfiguration(builder.build())
         val okHttpClient = OkHttpClient.Builder()

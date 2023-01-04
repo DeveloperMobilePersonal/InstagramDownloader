@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:11931391209:android:dda00ea5cce5aa0b010c78",
+        "mobilesdk_app_id": "1:11931391209:android:4c2dee06bf185a4c010c78",
         "android_client_info": {
-          "package_name": "instagram.photo.video.downloader.story.saver"
+          "package_name": "com.instagram.downloader.video.photo.saver"
         }
       },
       "oauth_client": [
