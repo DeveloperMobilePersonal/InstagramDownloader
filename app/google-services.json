@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "11931391209",
-    "project_id": "instagramdownloader-2ac83",
-    "storage_bucket": "instagramdownloader-2ac83.appspot.com"
+    "project_number": "783400519155",
+    "project_id": "tikmate-01",
+    "storage_bucket": "tikmate-01.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:11931391209:android:1f5e2e779caf110d010c78",
+        "mobilesdk_app_id": "1:783400519155:android:d8c91d19c1b64f80f53e86",
         "android_client_info": {
-          "package_name": "saver.instagram.downloader.video.photo"
+          "package_name": "instagram.downloader.story.video.photo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "11931391209-5998fvcrjpau7e3r77u2dv0gmfvsmrpp.apps.googleusercontent.com",
+          "client_id": "783400519155-psrcfj8smcjoetfm097uifk24uas09kh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCKzPfn7eWlh0e1NQtWpWW9fjaW5U7FNds"
+          "current_key": "AIzaSyATdychC0dp-h41xjcwA8F5STsTpRx_S20"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "11931391209-5998fvcrjpau7e3r77u2dv0gmfvsmrpp.apps.googleusercontent.com",
+              "client_id": "783400519155-psrcfj8smcjoetfm097uifk24uas09kh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
